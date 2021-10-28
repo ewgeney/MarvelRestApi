@@ -1,9 +1,10 @@
 package com.ewgeney.marvelrestapi.service;
 
+import com.ewgeney.marvelrestapi.controller.MarvelRepository;
 import com.ewgeney.marvelrestapi.model.Character;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,23 +12,23 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class CharacterServiceImpl implements CharacterService {
+    @Autowired
+    private MarvelRepository repository;
 
-    // Хранилище клиентов
-    private static final Map<Integer, Character> CHARACTER_REPOSITORY_MAP = new HashMap<>();
+    // Хранилище персонажей
+    private static final Map<String, Character> CHARACTER_REPOSITORY_MAP = new HashMap<String, Character>();
 
-    // Переменная для генерации ID клиента
+    // Переменная для генерации ID персонажа
     private static final AtomicInteger CHARACTER_ID_HOLDER = new AtomicInteger();
 
     @Override
     public void create(Character character) {
-        final int characterId = CHARACTER_ID_HOLDER.incrementAndGet();
-        character.setId(characterId);
-        CHARACTER_REPOSITORY_MAP.put(characterId, character);
+        repository.save(character);
     }
 
     @Override
     public List<Character> readAll() {
-        return new ArrayList<>(CHARACTER_REPOSITORY_MAP.values());
+        return repository.findAll();
     }
 
     @Override
@@ -36,7 +37,7 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public boolean update(Character character, int id) {
+    public boolean update(Character character, String id) {
         if (CHARACTER_REPOSITORY_MAP.containsKey(id)) {
             character.setId(id);
             CHARACTER_REPOSITORY_MAP.put(id, character);

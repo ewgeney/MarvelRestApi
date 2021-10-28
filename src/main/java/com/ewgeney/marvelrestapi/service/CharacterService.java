@@ -30,7 +30,7 @@ public interface CharacterService {
      * @param id - id персонажа которого нужно обновить
      * @return - true если данные были обновлены, иначе false
      */
-    boolean update(Character character, int id);
+    boolean update(Character character, String id);
 
     /**
      * Удаляет персонажа с заданным ID

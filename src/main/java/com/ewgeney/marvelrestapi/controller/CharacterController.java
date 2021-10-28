@@ -40,7 +40,7 @@ public class CharacterController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     @PutMapping(value = "/v1/public/characters/{characterId}")
-    public ResponseEntity<?> update(@PathVariable(name = "characterId") int id, @RequestBody Character character) {
+    public ResponseEntity<?> update(@PathVariable(name = "characterId") String id, @RequestBody Character character) {
         final boolean updated = characterService.update(character, id);
 
         return updated
