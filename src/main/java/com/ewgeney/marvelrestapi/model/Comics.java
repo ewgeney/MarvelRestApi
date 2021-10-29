@@ -1,18 +1,23 @@
 package com.ewgeney.marvelrestapi.model;
 
-import java.util.ArrayList;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+@Document
 public class Comics {
-    private Integer id;
+    @Id
+    private String id;
     private String name;
     private String description;
-    private ArrayList<Integer> characterId;
+    private String posterUrl;
+    private ArrayList<String> characterId;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -32,11 +37,23 @@ public class Comics {
         this.description = description;
     }
 
-    public ArrayList<Integer> getCharacterId() {
-        return characterId;
+    public String getCharacterId() {
+        StringBuilder sb = new StringBuilder();
+        for (Object o : characterId){
+            sb.append(o.toString()+", ");
+        }
+        return sb.toString();
     }
 
-    public void setCharacterId(ArrayList<Integer> characterId) {
-        this.characterId = characterId;
+    public void setCharacterId(ArrayList<String> s) {
+        this.characterId.addAll(s);
+    }
+
+    public String getPosterUrl() {
+        return posterUrl;
+    }
+
+    public void setPosterUrl(String posterUrl) {
+        this.posterUrl = posterUrl;
     }
 }

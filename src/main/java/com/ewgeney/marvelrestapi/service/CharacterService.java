@@ -1,6 +1,7 @@
 package com.ewgeney.marvelrestapi.service;
 
 import com.ewgeney.marvelrestapi.model.Character;
+
 import java.util.List;
 
 public interface CharacterService {
@@ -21,7 +22,7 @@ public interface CharacterService {
      * @param id - ID персонажа
      * @return - объект персонажа с заданным ID
      */
-    Character read(int id);
+    Character read(String id);
 
     /**
      * Обновляет персонажа с заданным ID,
@@ -30,12 +31,12 @@ public interface CharacterService {
      * @param id - id персонажа которого нужно обновить
      * @return - true если данные были обновлены, иначе false
      */
-    boolean update(Character character, int id);
+    boolean update(Character character, String id);
 
     /**
      * Удаляет персонажа с заданным ID
      * @param id - id персонажа, которого нужно удалить
      * @return - true если персонаж был удален, иначе false
      */
-    boolean delete(int id);
+    boolean delete(String id);
 }
