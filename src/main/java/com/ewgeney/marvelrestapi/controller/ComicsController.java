@@ -31,16 +31,16 @@ public class ComicsController {
                 ? new ResponseEntity<>(comics, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    @GetMapping(value = "/v1/public/comics/{comicId}")
-    public ResponseEntity<Comics> read(@PathVariable(name = "comicId") String id) {
+    @GetMapping(value = "/v1/public/comics/{comicsId}")
+    public ResponseEntity<Comics> read(@PathVariable(name = "comicsId") String id) {
         final Comics comics = comicsService.read(id);
 
         return comics != null
                 ? new ResponseEntity<>(comics, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    @PutMapping(value = "/v1/public/comics/{comicId}")
-    public ResponseEntity<?> update(@PathVariable(name = "comicId") String id, @RequestBody Comics comics) {
+    @PutMapping(value = "/v1/public/comics/{comicsId}")
+    public ResponseEntity<?> update(@PathVariable(name = "comicsId") String id, @RequestBody Comics comics) {
         final boolean updated = comicsService.update(comics, id);
 
         return updated
@@ -48,8 +48,8 @@ public class ComicsController {
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
-    @DeleteMapping(value = "/v1/public/comics/{comicId}")
-    public ResponseEntity<?> delete(@PathVariable(name = "comicId") String id) {
+    @DeleteMapping(value = "/v1/public/comics/{comicsId}")
+    public ResponseEntity<?> delete(@PathVariable(name = "comicsId") String id) {
         final boolean deleted = comicsService.delete(id);
 
         return deleted

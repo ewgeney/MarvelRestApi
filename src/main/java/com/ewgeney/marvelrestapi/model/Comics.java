@@ -13,6 +13,10 @@ public class Comics {
     private String posterUrl;
     private ArrayList<String> characterId;
 
+    public Comics(){
+        characterId = new ArrayList<>();
+    }
+
     public String getId() {
         return id;
     }
