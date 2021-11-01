@@ -1,7 +1,6 @@
 package com.ewgeney.marvelrestapi.service;
 
 import com.ewgeney.marvelrestapi.model.Comics;
-import com.ewgeney.marvelrestapi.model.Model;
 
 import java.util.List;
 

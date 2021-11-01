@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 
 @Document
-public class Character implements Model{
+public class Character {
     @Id
     private String id;
     private String name;

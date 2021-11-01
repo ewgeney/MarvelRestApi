@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface MarvelRepository extends MongoRepository<Character, String> {
+public interface CharacterRepository extends MongoRepository<Character, String> {
     Character findOneById (String id);
 }

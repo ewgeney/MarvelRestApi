@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 @Document
-public class Comics implements Model{
+public class Comics {
     @Id
     private String id;
     private String name;

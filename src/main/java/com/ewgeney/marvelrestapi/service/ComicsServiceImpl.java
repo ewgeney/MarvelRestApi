@@ -1,10 +1,7 @@
 package com.ewgeney.marvelrestapi.service;
 
 import com.ewgeney.marvelrestapi.controller.ComicsRepository;
-import com.ewgeney.marvelrestapi.controller.MarvelRepository;
-import com.ewgeney.marvelrestapi.model.Character;
 import com.ewgeney.marvelrestapi.model.Comics;
-import com.ewgeney.marvelrestapi.model.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,29 +11,29 @@ import java.util.List;
 public class ComicsServiceImpl implements ComicsService{
 
     @Autowired
-    private ComicsRepository repository;
+    private ComicsRepository comicsRepository;
     @Override
     public void create(Comics comics) {
-        repository.save(comics);
+        comicsRepository.save(comics);
     }
 
     @Override
     public List<Comics> readAll() {
-        return repository.findAll();
+        return comicsRepository.findAll();
     }
 
     @Override
     public Comics read(String id) {
-        return repository.findOneById(id);
+        return comicsRepository.findOneById(id);
     }
 
     @Override
     public boolean update(Comics comics, String id) {
 
-        if(repository.existsById(id)){
-            repository.deleteById(id);
+        if(comicsRepository.existsById(id)){
+            comicsRepository.deleteById(id);
             comics.setId(id);
-            repository.insert(comics);
+            comicsRepository.insert(comics);
             return true;
         }
         return false;
@@ -44,8 +41,8 @@ public class ComicsServiceImpl implements ComicsService{
 
     @Override
     public boolean delete(String id) {
-        if(repository.existsById(id)){
-            repository.deleteById(id);
+        if(comicsRepository.existsById(id)){
+            comicsRepository.deleteById(id);
             return true; }
         else return false;
     }

@@ -1,8 +1,6 @@
 package com.ewgeney.marvelrestapi.controller;
 
-import com.ewgeney.marvelrestapi.model.Character;
 import com.ewgeney.marvelrestapi.model.Comics;
-import com.ewgeney.marvelrestapi.service.CharacterService;
 import com.ewgeney.marvelrestapi.service.ComicsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
