@@ -1,7 +1,6 @@
 package com.ewgeney.marvelrestapi.service;
 
 import com.ewgeney.marvelrestapi.model.Character;
-
 import java.util.List;
 
 public interface CharacterService {

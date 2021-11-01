@@ -2,8 +2,8 @@ package com.ewgeney.marvelrestapi.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.ArrayList;
+
 @Document
 public class Comics {
     @Id

@@ -4,7 +4,6 @@ import com.ewgeney.marvelrestapi.controller.ComicsRepository;
 import com.ewgeney.marvelrestapi.model.Comics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
